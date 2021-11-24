@@ -4,7 +4,8 @@ import PySimpleGUI as sg
 
 sg.theme('Dark red')     # Please always add color to your window
 # The tab 1, 2, 3 layouts - what goes inside the tab
-tab1_layout = [[sg.Text('Conversion, enter two and calculate the other')],
+tab1_layout = [[sg.Text('Conversion, enter two')],
+               [sg.Text('and calculate the other')],
                [sg.Text('Pace:           '), sg.Input(size=(8,1), key='-PACE-')],
                [sg.Text('Distance:      '), sg.Input(size=(8,1), key='-DIST-')],
                [sg.Text('Time:           '), sg.Input(size=(8,1), key='-TIME-')],
@@ -31,8 +32,8 @@ tab2_layout = [[sg.Text('Precentage of desired pace')],
                ]
 
 # The TabgGroup layout - it must contain only Tabs
-tab_group_layout = [[sg.Tab('Tab 1', tab1_layout, font='Courier 15', key='-TAB1-'),
-                     sg.Tab('Tab 2', tab2_layout, key='-TAB2-'),
+tab_group_layout = [[sg.Tab('Conversion ', tab1_layout, font='Courier 15', key='-TAB1-'),
+                     sg.Tab('% of pace', tab2_layout, key='-TAB2-'),
                      ]]
 
 # The window layout - defines the entire window
@@ -41,7 +42,7 @@ layout = [[sg.TabGroup(tab_group_layout,
                        key='-TABGROUP-')],
           ]
 
-window = sg.Window('Pace, time and distance tools', layout, margins=(100, 100),
+window = sg.Window('Pace, time and distance tools', layout,location=(0,0), margins=(100, 100),
                      no_titlebar=False)
 
 tab_keys = ('-Conversion-','-Precentage of desired pace-')         # map from an input value to a key
